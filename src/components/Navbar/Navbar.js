@@ -4,8 +4,7 @@ import { Link, NavLink } from 'react-router-dom';
 export default class Navbar extends Component {
     render() {
         return (
-
-            <nav className="navbar navbar-expand-lg navbar-dark bg-dark">
+            <nav className="navbar navbar-expand-lg navbar-dark bg-dark mb-4 p-0">
                 <Link className="navbar-brand" to="/">ExerciseTracker</Link>
                 <button className="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarColor02" aria-controls="navbarColor02" aria-expanded="false" aria-label="Toggle navigation">
                     <span className="navbar-toggler-icon"></span>
@@ -20,7 +19,7 @@ export default class Navbar extends Component {
                             <NavLink className="nav-link" to="/exercise" activeClassName="active">New Exercise</NavLink>
                         </li>
                         <li className="nav-item">
-                            <NavLink className="nav-link" to="/user" activeClassName="active">Register</NavLink>
+                            <NavLink className="nav-link" to="/user" activeClassName="active">New User</NavLink>
                         </li>
                     </ul>
                 </div>
