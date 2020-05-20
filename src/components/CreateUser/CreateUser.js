@@ -13,20 +13,21 @@ export default class CreateUser extends Component {
         }
     }
 
-    onChangeUsername(e){
+    onChangeUsername(e) {
         this.setState({
             username: e.target.value
         });
     }
 
-    onSubmit(e){
+    onSubmit(e) {
         e.preventDefault();
         const user = {
             username: this.state.username
         }
         console.log(user);
         axios.post('http://localhost:5000/users/add', user)
-        .then(res=> console.log(res.data));
+            .then((res) => console.log(res.data))
+            .catch((err) => console.log(err));
         this.setState({
             username: ''
         });
@@ -53,7 +54,7 @@ export default class CreateUser extends Component {
                         <input
                             type='submit'
                             value='Create User'
-                            className='btn btn-primary'
+                            className='btn btn-outline-secondary'
                         />
                     </div>
                 </form>

@@ -22,7 +22,7 @@ export default class NewExercise extends Component {
 
     componentDidMount() {
         axios.get('http://localhost:5000/users')
-            .then(res => {
+            .then((res) => {
                 if (res.data.length > 0) {
                     this.setState({
                         users: res.data.map(user => user.username),
@@ -30,10 +30,9 @@ export default class NewExercise extends Component {
                     })
                 }
             })
-        this.setState({
-            users: ['test user'],
-            username: 'test user'
-        });
+            .catch((err) => {
+                console.log(err);
+            });
     }
 
     handleChanges(event) {
@@ -59,8 +58,11 @@ export default class NewExercise extends Component {
         }
         console.log(exercise);
         axios.post('http://localhost:5000/exercises/add', exercise)
-            .then(res => console.log(res.data));
-        this.props.history.push('/');
+            .then((res) => {
+                console.log(res.data);
+                this.props.history.push('/');
+            })
+            .catch((err) => console.log(err));
     }
 
     render() {
@@ -120,7 +122,7 @@ export default class NewExercise extends Component {
                     </div>
 
                     <div className="form-group">
-                        <input type="submit" value="Create Exercise Log" className="btn btn-primary" />
+                        <input type="submit" value="Create Exercise Log" className="btn btn-outline-secondary" />
                     </div>
                 </form>
             </div>

@@ -6,19 +6,19 @@ import NewExercise from './components/NewExercise/NewExercise';
 import CreateUser from './components/CreateUser/CreateUser';
 import EditExercise from './components/EditExercise/EditExercise';
 
-
 function App() {
   return (
-    <div>
+    <>
       <Navbar />
       <Switch>
-        <Route path='/edit/:id'>
-          <EditExercise />
-        </Route>
-        
-        <Route
-          path='/exercise'
-          render={(routeProps)=>{
+        <Route path='/edit/:id'
+          render={(routeProps) => {
+            return <EditExercise {...routeProps} />
+          }}
+        />
+
+        <Route path='/exercise'
+          render={(routeProps) => {
             return <NewExercise {...routeProps} />
           }}
         />
@@ -30,7 +30,7 @@ function App() {
           <ExercisesList />
         </Route>
       </Switch>
-    </div>
+    </>
   );
 }
 
