@@ -15,9 +15,14 @@ function App() {
         <Route path='/edit/:id'>
           <EditExercise />
         </Route>
-        <Route path='/exercise'>
-          <NewExercise />
-        </Route>
+        
+        <Route
+          path='/exercise'
+          render={(routeProps)=>{
+            return <NewExercise {...routeProps} />
+          }}
+        />
+
         <Route path='/user'>
           <CreateUser />
         </Route>
